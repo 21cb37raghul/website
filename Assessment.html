@@ -30,6 +30,55 @@ console.log(x % y);</code></pre>
     <div id="result"></div>
   </div>
 
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.submit {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#result {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
   <script src="script.js"></script>
 </body>
 </html>
+
+function submitForm() {
+  // Get the form element
+  var form = document.getElementById("assessmentForm");
+
+  // Initialize score
+  var score = 0;
+
+  // Loop through each question
+  for (var i = 1; i <= 10; i++) {
+    // Get the selected answer for the current question
+    var selectedAnswer = form.elements["q" + i].value;
+
+    // Check if the selected answer is correct
+    if (selectedAnswer === "correct") {
+      score++;
+    }
+  }
+
+  // Display the result
+  var resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = "Your score: " + score + " out of 10";
+}
+
